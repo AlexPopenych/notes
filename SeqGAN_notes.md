@@ -42,10 +42,7 @@ where RT is the reward for a complete sequence.
 
 <img src="https://github.com/AlexPopenych/notes/blob/master/Снимок%20экрана%202019-03-31%20в%2022.12.39.png" width="80" height="30"> - is the action-value function of a sequence, i.e. the expected accumulative reward starting from state s, taking action a, and then following policy Gθ.
 
-Then consider the estimated probability of being real by the discriminator D mally, we have:
-φ
-(Y n 1:T
-) as the reward.
+Then consider the estimated probability of being real by the discriminator Dφ (Y1:T) as the reward.
 
 <img src="https://github.com/AlexPopenych/notes/blob/master/Снимок%20экрана%202019-03-31%20в%2022.13.39.png">
 
@@ -55,6 +52,8 @@ However, the discriminator only provides a reward value for a finished sequence.
 <img src="https://github.com/AlexPopenych/notes/blob/master/Снимок%20экрана%202019-03-31%20в%2022.14.55.png">
 
 where Y1:t = (y1, . . . , yt) and Yt+1:T is sampled based on the roll-out policy Gβ and the current state. In experiment, Gβ is set the same as the generator, but one can use a simplified version if the speed is the priority. To reduce the variance and get more accurate assessment of the action value, authors run the roll-out policy starting from current state till the end of the sequence for N times to get a batch of output samples. 
+
+<img src="https://github.com/AlexPopenych/notes/blob/master/Снимок%20экрана%202019-03-31%20в%2022.15.40.png">
 
 Once have a set of more realistic generated sequences, retrain the discriminator model and update discriminator parameters:
 
